@@ -1,0 +1,19 @@
+{
+  "name": "react-lista-compra",
+  "version": "1.0.0",
+  "description": "API REST de la lista de la compra con cliente React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ottocol/react-lista-compra.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ottocol/react-lista-compra/issues"
+  },
+  "homepage": "https://github.com/ottocol/react-lista-compra#readme"
+}
