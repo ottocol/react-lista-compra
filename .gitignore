@@ -5,6 +5,13 @@ bundle.js
 .idea/workspace.xml 
 .idea/tasks.xml
 
+
+# Node
+
 # Dependency directories
 node_modules
+#logs
+*.log
+
+
 
