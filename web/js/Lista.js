@@ -9,6 +9,9 @@ module.exports = React.createClass({
     verDetalles: function (i) {
        this.setState({detalle:i})
     },
+    ocultarDetalles: function () {
+       this.setState({detalle:undefined})
+    },
     render: function () {
         var prods = []
         for (var i=0; i<this.props.items.length; i++) {
@@ -19,7 +22,8 @@ module.exports = React.createClass({
                                      pos={i}
                                      nombre={actual.nombre}
                                      cantidad={actual.cantidad}
-                                     comentario={actual.comentario}/>
+                                     comentario={actual.comentario}
+                                     handleOcultarDetalles={this.ocultarDetalles}/>
             }
             else {
                 elemento = <Item key={i}
