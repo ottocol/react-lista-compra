@@ -12,5 +12,16 @@ module.exports  = {
                 })
             })
     },
+    addItem: function (item) {
+        return fetch(this.API_URL, {
+                   method: 'POST',
+                   headers: {
+                       'Content-type':'application/json'
+                   },
+                   body: JSON.stringify(item)
+               }).then(function (respuesta) {
+                   return respuesta.json()
+               })
+    }
 
 }
