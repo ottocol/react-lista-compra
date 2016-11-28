@@ -1,6 +1,9 @@
 //Ejemplo de un componente React simple que hace una petición AJAX
 var React = require('react')
 var MiComponente = React.createClass({
+    componentDidMount: function () {
+      console.log("componente montado!!")
+    },
     getInitialState: function () {
       return {mensaje: ''}
     },

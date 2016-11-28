@@ -1,10 +1,17 @@
 var React = require('react')
 var Item = require('./Item')
 var DetallesItem = require('./DetallesItem')
+var API_lista = require('./servicios/API')
 
 module.exports = React.createClass({
+    componentDidMount: function () {
+      API_lista.obtenerItems()
+          .then(datos => {
+              this.setState({items: datos})
+          })
+    },
     getInitialState : function () {
-      return {}
+      return {items:[]}
     },
     verDetalles: function (i) {
        this.setState({detalle:i})
@@ -14,8 +21,8 @@ module.exports = React.createClass({
     },
     render: function () {
         var prods = []
-        for (var i=0; i<this.props.items.length; i++) {
-            var actual = this.props.items[i]
+        for (var i=0; i<this.state.items.length; i++) {
+            var actual = this.state.items[i]
             var elemento
             if (this.state.detalle==i) {
                 elemento = <DetallesItem key={i}
