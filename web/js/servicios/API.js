@@ -6,10 +6,6 @@ module.exports  = {
             .then(function(response) {
                 if (response.ok)
                     return response.json()
-            }).then(function (json) {
-                return new Promise(function (resolve, reject) {
-                    resolve(json)
-                })
             })
     },
     addItem: function (item) {
