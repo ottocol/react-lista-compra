@@ -16,7 +16,8 @@ module.exports  = {
                    },
                    body: JSON.stringify(item)
                }).then(function (respuesta) {
-                   return respuesta.json()
+                   if (respuesta.ok)
+                      return respuesta.json()
                })
     }
 
