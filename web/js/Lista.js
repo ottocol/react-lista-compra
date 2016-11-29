@@ -19,7 +19,7 @@ module.exports = React.createClass({
     addItem: function (nuevo) {
       var items = this.state.items
       items.push(nuevo)
-      this.setState({items: items})
+      this.setState({items: items, detalle:undefined})
     },
     refrescarItems: function () {
         API_lista.obtenerItems()
