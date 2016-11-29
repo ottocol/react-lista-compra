@@ -50,7 +50,6 @@ module.exports = React.createClass({
                 elemento = <Item key={i}
                                  pos={i}
                                  nombre={actual.nombre}
-                                 cantidad={actual.cantidad}
                                  handleVerDetalles={this.verDetalles}/>
             }
             prods.push(elemento)
