@@ -1,7 +1,8 @@
 var React = require('react')
 var API_lista = require('./servicios/API')
+var EventBus = require('./servicios/EventBus')
 
-module.exports = React.createClass({
+var NuevoItemComponente = React.createClass({
     clickAdd: function () {
        var nuevo = {
            nombre: this.campoNombre.value,
@@ -9,7 +10,7 @@ module.exports = React.createClass({
            comentario: this.campoComentario.value
        }
        API_lista.addItem(nuevo).then(function(datos){
-           console.log(datos)
+           EventBus.eventEmitter.emitEvent('nuevoItem', [nuevo])
        })
     },
     render: function () {
@@ -25,3 +26,4 @@ module.exports = React.createClass({
         </div>
     }
 })
+module.exports = NuevoItemComponente

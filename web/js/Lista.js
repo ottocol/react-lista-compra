@@ -2,16 +2,30 @@ var React = require('react')
 var Item = require('./Item')
 var DetallesItem = require('./DetallesItem')
 var API_lista = require('./servicios/API')
+var EventBus = require('./servicios/EventBus')
+
 
 module.exports = React.createClass({
     componentDidMount: function () {
-      API_lista.obtenerItems()
-          .then(datos => {
-              this.setState({items: datos})
-          })
+        //escuchamos el evento 'nuevoItem' en el bus de eventos
+        //si se recibe el evento hay que añadir el item a la lista
+        EventBus.eventEmitter.addListener('nuevoItem', this.addItem)
+        //le pedimos los items al API
+        this.refrescarItems()
     },
     getInitialState : function () {
       return {items:[]}
+    },
+    addItem: function (nuevo) {
+      var items = this.state.items
+      items.push(nuevo)
+      this.setState({items: items})
+    },
+    refrescarItems: function () {
+        API_lista.obtenerItems()
+            .then(datos => {
+                this.setState({items: datos})
+            })
     },
     verDetalles: function (i) {
        this.setState({detalle:i})
