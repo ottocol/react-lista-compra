@@ -8,6 +8,15 @@ Para ejecutar el servidor:
 node server.js
 ```
 
+
+Para poder construir el código en el cliente hace falta la herramienta en línea de comandos `watchify`. Si no está instalada, se puede instalar con
+
+```bash
+npm install watchify -g
+```
+
+> Si has instalado node usando  NVM (Node Version Manager) no harán falta permisos de *root* para instalar con `-g`, pero si lo has instalado por otros métodos es bastante probable que tengas que ejecutar la orden anterior en modo superusuario.
+ 
 Para poner en marcha el *build* del cliente, en una **nueva terminal** (sin cerrar el proceso del servidor):
 
 ```bash
