@@ -3,7 +3,7 @@
 
 # Node
 # Dependency directories
-node_modules
+**/node_modules
 #logs
 *.log
 

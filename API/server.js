@@ -1,8 +1,6 @@
 var express = require('express')
 var app = express()
 
-app.use('/web', express.static('web'))
-
 //Para la utilidad body-parser
 var bp = require('body-parser')
 app.use(bp.json())
