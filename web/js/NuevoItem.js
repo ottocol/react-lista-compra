@@ -2,8 +2,12 @@ var React = require('react')
 var API_lista = require('./servicios/API')
 var EventBus = require('./servicios/EventBus')
 
-var NuevoItemComponente = React.createClass({
-    clickAdd: function () {
+class NuevoItemComponente extends React.Component {
+    constructor(props) {
+        super(props)
+        this.clickAdd = this.clickAdd.bind(this)
+    }
+    clickAdd() {
        var nuevo = {
            nombre: this.campoNombre.value,
            cantidad: this.campoCantidad.value,
@@ -12,8 +16,8 @@ var NuevoItemComponente = React.createClass({
        API_lista.addItem(nuevo).then(function(datos){
            EventBus.eventEmitter.emitEvent('nuevoItem', [nuevo])
        })
-    },
-    render: function () {
+    }
+    render() {
         return <div>
             <h1>Nuevo item</h1>
             <input type="text" placeholder="Nombre..."
@@ -25,5 +29,5 @@ var NuevoItemComponente = React.createClass({
             <button onClick={this.clickAdd}>Añadir</button>
         </div>
     }
-})
+}
 module.exports = NuevoItemComponente
