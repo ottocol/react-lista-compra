@@ -1,14 +1,17 @@
 
-module.exports  = {
-    API_URL : 'http://localhost:3000/api/items',
-    obtenerItems: function () {
+class API_lista  {
+    constructor() {
+        this.API_URL = 'http://localhost:3000/api/items'
+    }
+
+    obtenerItems() {
         return fetch(this.API_URL)
             .then(function(response) {
                 if (response.ok)
                     return response.json()
             })
-    },
-    addItem: function (item) {
+    }
+    addItem(item) {
         return fetch(this.API_URL, {
                    method: 'POST',
                    headers: {
@@ -20,5 +23,6 @@ module.exports  = {
                       return respuesta.json()
                })
     }
-
 }
+
+export default API_lista

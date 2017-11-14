@@ -1,6 +1,6 @@
-var React = require('react')
-var API_lista = require('./servicios/API')
-var EventBus = require('./servicios/EventBus')
+import React from 'react'
+import API_lista from './servicios/API'
+import EmisorEventos from './servicios/EmisorEventos'
 
 class NuevoItemComponente extends React.Component {
     constructor(props) {
@@ -13,8 +13,8 @@ class NuevoItemComponente extends React.Component {
            cantidad: this.campoCantidad.value,
            comentario: this.campoComentario.value
        }
-       API_lista.addItem(nuevo).then(function(datos){
-           EventBus.eventEmitter.emitEvent('nuevoItem', [nuevo])
+       new API_lista().addItem(nuevo).then(function(datos){
+           EmisorEventos.eventEmitter.emitEvent('nuevoItem', [nuevo])
        })
     }
     render() {
@@ -30,4 +30,4 @@ class NuevoItemComponente extends React.Component {
         </div>
     }
 }
-module.exports = NuevoItemComponente
+export default NuevoItemComponente

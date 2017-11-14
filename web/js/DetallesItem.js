@@ -1,4 +1,4 @@
-var React = require('react')
+import React from 'react'
 
 class DetallesItem extends React.Component {
     constructor(props) {
@@ -20,4 +20,4 @@ class DetallesItem extends React.Component {
     }
 }
 
-module.exports = DetallesItem
+export default DetallesItem

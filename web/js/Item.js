@@ -1,4 +1,4 @@
-var React = require('react')
+import React  from 'react'
 
 class Item extends React.Component {
     constructor(props) {
@@ -17,5 +17,5 @@ class Item extends React.Component {
     }
 }
 
-module.exports =  Item
+export default Item
 

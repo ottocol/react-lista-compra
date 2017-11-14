@@ -1,9 +1,8 @@
-var React = require('react')
-var Item = require('./Item')
-var DetallesItem = require('./DetallesItem')
-var API_lista = require('./servicios/API')
-var EventBus = require('./servicios/EventBus')
-
+import React from 'react'
+import Item from './Item'
+import DetallesItem from './DetallesItem'
+import API_lista from './servicios/API'
+import EmisorEventos from './servicios/EmisorEventos'
 
 class Lista extends React.Component {
     constructor(props) {
@@ -16,7 +15,7 @@ class Lista extends React.Component {
     componentDidMount() {
         //escuchamos el evento 'nuevoItem' en el bus de eventos
         //si se recibe el evento hay que añadir el item a la lista
-        EventBus.eventEmitter.addListener('nuevoItem', this.addItem)
+        EmisorEventos.eventEmitter.addListener('nuevoItem', this.addItem)
         //le pedimos los items al API
         this.refrescarItems()
     }
@@ -28,7 +27,7 @@ class Lista extends React.Component {
     }
 
     refrescarItems() {
-        API_lista.obtenerItems()
+        new API_lista().obtenerItems()
             .then(datos => {
                 this.setState({items: datos})
             })
@@ -70,4 +69,4 @@ class Lista extends React.Component {
     }
 }
 
-module.exports = Lista
+export default Lista
