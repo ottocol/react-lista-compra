@@ -1,5 +1,8 @@
 var express = require('express')
+var cors = require('cors')
+
 var app = express()
+app.use(cors())
 
 //Para la utilidad body-parser
 var bp = require('body-parser')
@@ -87,6 +90,6 @@ app.get('*', function(pet, resp){
 })
 
 app.listen(3000,function(){
-    console.log('Marchando el servidor...')
+    console.log('Marchando el servidor por el puerto 3000...')
 
 })
